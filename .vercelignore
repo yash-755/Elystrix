@@ -1,0 +1,38 @@
+# Vercel Ignore
+# Files/folders that Vercel doesn't need to upload or process
+
+# Development & Documentation
+walkthrough.md
+qa_report.md
+CLEANUP.md
+build_log.txt
+README.md
+
+# IDE & Editor Files
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Generated/Ignored Folders
+_ignore_*/
+generated_client/
+
+# Scripts (unless needed for build)
+scripts/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Test & Coverage
+coverage/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx

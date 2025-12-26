@@ -1,0 +1,90 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+coverage/
+.nyc_output
+
+# Next.js
+.next/
+out/
+dist/
+build/
+.turbo/
+
+# Vercel
+.vercel/
+
+# Production
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Temporary & Cache
+tmp/
+temp/
+.cache/
+.eslintcache
+.stylelintcache
+
+# Documentation & QA (Development-only)
+walkthrough.md
+qa_report.md
+CLEANUP.md
+build_log.txt
+
+# Generated/Ignored Folders
+_ignore_*/
+generated_client/
+
+# Database & Local Data
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Misc
+*.pem
+.env.test
