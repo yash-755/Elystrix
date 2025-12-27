@@ -13,9 +13,15 @@ export function Logo({ className, size = "md" }: LogoProps) {
   }
 
   const iconSizes = {
-    sm: 24,
-    md: 32,
-    lg: 48,
+    sm: 40,  // h-10 equivalent (40px) for public navbar
+    md: 48,  // h-12 equivalent (48px) for admin sidebar
+    lg: 64,  // h-16 equivalent (64px)
+  }
+
+  const heightClasses = {
+    sm: "h-10",  // 40px for public navbar/sidebars
+    md: "h-12",  // 48px for admin sidebar
+    lg: "h-16",  // 64px for large displays
   }
 
   return (
@@ -25,7 +31,7 @@ export function Logo({ className, size = "md" }: LogoProps) {
         alt="Elystrix Logo"
         width={iconSizes[size]}
         height={iconSizes[size]}
-        className="object-contain" // Ensures aspect ratio is maintained
+        className={cn(heightClasses[size], "w-auto object-contain")}
       />
       <span className={cn("font-bold tracking-tight", sizes[size])}>
         <span className="text-yellow-500">Ely</span>
