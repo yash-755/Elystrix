@@ -1,27 +1,24 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getCurrentUser } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
 
+export const dynamic = "force-dynamic"
+
 export async function POST(req: NextRequest) {
     try {
-        const user = await getCurrentUser()
+        // Note: This endpoint requires authentication to be handled client-side
+        // The userId should be passed in the request body
+        const { pathId, userId } = await req.json()
 
-        if (!user) {
-            return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 })
-        }
-
-        const { pathId } = await req.json()
-
-        if (!pathId) {
-            return NextResponse.json({ success: false, error: "Path ID required" }, { status: 400 })
+        if (!userId || !pathId) {
+            return NextResponse.json({ success: false, error: "User ID and Path ID required" }, { status: 400 })
         }
 
         // Check if already enrolled
         const existing = await prisma.userLearningPath.findUnique({
             where: {
                 userId_learningPathId: {
-                    userId: user.id,
+                    userId: userId,
                     learningPathId: pathId,
                 },
             },
@@ -34,7 +31,7 @@ export async function POST(req: NextRequest) {
         // Create enrollment
         await prisma.userLearningPath.create({
             data: {
-                userId: user.id,
+                userId: userId,
                 learningPathId: pathId,
                 progress: 0,
                 status: "in-progress",

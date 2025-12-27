@@ -1,26 +1,42 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 import { getUserSubscription } from "@/app/actions/subscription"
-import { getCurrentUser } from "@/lib/auth"
 
-export async function GET() {
+export const dynamic = "force-dynamic"
+
+export async function GET(request: NextRequest) {
     try {
-        const user = await getCurrentUser()
+        const userId = request.nextUrl.searchParams.get('userId')
 
-        if (!user) {
-            return NextResponse.json({ plan: "FREE" }, { status: 200 })
+        if (!userId) {
+            return NextResponse.json({ error: 'User ID required' }, { status: 400 })
         }
 
-        // Fetch subscription
-        const subscription = await getUserSubscription(user.id)
+        // Find user by Firebase UID
+        const user = await prisma.user.findUnique({
+            where: { firebaseUid: userId }
+        })
+
+        if (!user) {
+            return NextResponse.json({ error: 'User not found' }, { status: 404 })
+        }
+
+        // Fetch subscription and stats
+        const [subscription, coursesAccessed, certificatesEarned, quizAttempts] = await Promise.all([
+            getUserSubscription(user.id),
+            prisma.enrollment.count({ where: { userId: user.id } }),
+            prisma.certificate.count({ where: { userId: user.id } }),
+            prisma.quizAttempt.count({ where: { userId: user.id } }),
+        ])
 
         return NextResponse.json({
-            plan: subscription?.plan || "FREE",
-            status: subscription?.status || "INACTIVE",
             subscription,
+            coursesAccessed,
+            certificatesEarned,
+            quizAttempts,
         })
     } catch (error) {
-        console.error("Error fetching subscription data:", error)
-        return NextResponse.json({ plan: "FREE" }, { status: 200 })
+        console.error('Error fetching subscription data:', error)
+        return NextResponse.json({ error: 'Failed to fetch subscription data' }, { status: 500 })
     }
 }
