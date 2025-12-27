@@ -28,6 +28,7 @@ import {
 } from "lucide-react"
 import { getAdminLearningPaths } from "@/app/actions/learning-paths"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export default async function AdminPathsPage() {

@@ -8,6 +8,9 @@ import Link from "next/link"
 import { CertificateGenerator as CertificateViewer } from "@/components/certificates/CertificateGenerator"
 import { useAuth } from "@/components/auth-provider"
 
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
+
 // This is a Server Component
 export default async function CertificateDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

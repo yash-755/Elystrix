@@ -10,6 +10,7 @@ import { CTA } from "@/components/marketing/CTA"
 import { prisma } from "@/lib/prisma"
 import { LandingGuard } from "@/components/landing-guard"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export default async function HomePage() {

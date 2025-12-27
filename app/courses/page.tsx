@@ -1,6 +1,7 @@
 import CoursesPageClient from "@/components/courses-page-client"
 import { prisma } from "@/lib/prisma"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export default async function CoursesPage() {

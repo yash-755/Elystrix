@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma"
 import { UsersTable } from "@/components/admin/users-table"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export default async function AdminUsersPage() {

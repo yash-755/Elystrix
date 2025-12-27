@@ -20,6 +20,7 @@ import {
 import Link from "next/link"
 import { formatDistanceToNow } from "date-fns"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export default async function AdminDashboardPage() {

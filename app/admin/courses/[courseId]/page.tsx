@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { EditCourseClient } from "@/components/admin/course-form/edit-course-client"
 
 // Force dynamic rendering
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic";
 
 interface EditCoursePageProps {
