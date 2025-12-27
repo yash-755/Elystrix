@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic"
 
 export async function POST(req: Request) {
     try {
+        const stripe = getStripe();
+        if (!stripe) {
+            return new NextResponse("Stripe configuration missing", { status: 503 });
+        }
+
         const body = await req.json();
         const { planId, userId, userEmail, returnUrl } = body;
 
@@ -13,10 +18,6 @@ export async function POST(req: Request) {
             return new NextResponse("Missing required fields", { status: 400 });
         }
 
-        // 1. Fetch Pricing from Firestore (Admin Controlled)
-        // We use the same getPlans function essentially, but we filter for the specific plan.
-        // In a real server-side context, you might query Firestore directly using admin SDK,
-        // but re-using the lib logic ensures consistency with what the user sees.
         // 1. Fetch Pricing from Firestore (Admin Controlled)
         // Replaced file-based getPlans with Prisma DB call
         const plans = await prisma.plan.findMany();

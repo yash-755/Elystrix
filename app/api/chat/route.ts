@@ -26,8 +26,14 @@ INSTRUCTIONS:
 - If the user asks something unrelated (e.g., "Write a poem"), politely steer them back to learning or coding.
 - Keep responses short (under 3 paragraphs).`
 
-        // Get Groq client
-        const groq = getGroqClient()
+        // Get Groq client - handle missing key
+        let groq;
+        try {
+            groq = getGroqClient()
+        } catch (e) {
+            console.warn("Groq Client init failed (likely missing key):", e);
+            return NextResponse.json({ reply: "I'm currently undergoing maintenance. Please try again later." });
+        }
 
         // Create chat completion with Groq
         const chatCompletion = await groq.chat.completions.create({

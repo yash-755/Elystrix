@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { headers } from "next/headers";
 import { prisma } from "@/lib/prisma";
 
@@ -8,6 +8,17 @@ export const dynamic = "force-dynamic"
 export async function POST(req: Request) {
     const body = await req.text();
     const signature = (await headers()).get("Stripe-Signature") as string;
+    const stripe = getStripe();
+
+    if (!stripe) {
+        console.error("Stripe is not initialized (missing keys)");
+        return new NextResponse("Service Unavailable - Stripe not configured", { status: 503 });
+    }
+
+    if (!process.env.STRIPE_WEBHOOK_SECRET) {
+        console.error("STRIPE_WEBHOOK_SECRET is missing");
+        return new NextResponse("Service Unavailable - Webhook secret missing", { status: 503 });
+    }
 
     let event;
 
@@ -15,7 +26,7 @@ export async function POST(req: Request) {
         event = stripe.webhooks.constructEvent(
             body,
             signature,
-            process.env.STRIPE_WEBHOOK_SECRET!
+            process.env.STRIPE_WEBHOOK_SECRET
         );
     } catch (error: any) {
         console.error("Webhook signature verification failed:", error.message);

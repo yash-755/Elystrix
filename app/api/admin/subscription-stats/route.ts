@@ -5,6 +5,16 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
     try {
+        if (!process.env.DATABASE_URL) {
+            return NextResponse.json({
+                totalUsers: 0,
+                activeSubscriptions: 0,
+                paidUsers: 0,
+                mrr: 0,
+                planBreakdown: [],
+            });
+        }
+
         const [totalUsers, activeSubscriptions, planBreakdown] = await Promise.all([
             prisma.user.count(),
             prisma.subscription.findMany({

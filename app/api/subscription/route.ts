@@ -6,6 +6,15 @@ export const dynamic = "force-dynamic"
 
 export async function GET(request: NextRequest) {
     try {
+        if (!process.env.DATABASE_URL) {
+            return NextResponse.json({
+                subscription: null, // Return null or default sub
+                coursesAccessed: 0,
+                certificatesEarned: 0,
+                quizAttempts: 0,
+            })
+        }
+
         const userId = request.nextUrl.searchParams.get('userId')
 
         if (!userId) {

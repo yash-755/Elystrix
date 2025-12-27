@@ -6,6 +6,10 @@ export const dynamic = "force-dynamic"
 
 export async function POST(req: NextRequest) {
     try {
+        if (!process.env.DATABASE_URL) {
+            return NextResponse.json({ success: false, error: "Database unavailable" }, { status: 503 })
+        }
+
         // Note: This endpoint requires authentication to be handled client-side
         // The userId should be passed in the request body
         const { pathId, userId } = await req.json()

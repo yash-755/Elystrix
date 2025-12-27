@@ -5,6 +5,18 @@ export const dynamic = "force-dynamic"
 
 export async function GET(request: NextRequest) {
     try {
+        // Safe return if no DB
+        if (!process.env.DATABASE_URL) {
+            return NextResponse.json({
+                totalEnrollments: 0,
+                completedEnrollments: 0,
+                certificatesCount: 0,
+                quizAttemptsCount: 0,
+                enrolledPathsCount: 0,
+                recentEnrollment: null,
+            });
+        }
+
         const userId = request.nextUrl.searchParams.get('userId')
 
         if (!userId) {
