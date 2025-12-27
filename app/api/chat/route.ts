@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { getGroqClient, GROQ_CONFIG } from "@/lib/ai/groq"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export async function POST(req: Request) {
