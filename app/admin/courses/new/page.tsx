@@ -1,17 +1,18 @@
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
 
-import { PrismaClient } from "@prisma/client"
+import { prisma } from "@/lib/prisma"
 import { NewCourseClient } from "./client"
-
-const prisma = new PrismaClient()
 
 export default async function NewCoursePage() {
   const categories = await prisma.courseCategory.findMany({
-    orderBy: { name: 'asc' },
-    select: { id: true, name: true, slug: true }
-  });
+    orderBy: { name: "asc" },
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+    },
+  })
 
-  return (
-    <NewCourseClient categories={categories} />
-  )
+  return <NewCourseClient categories={categories} />
 }
-
