@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { EnrollButton } from "@/components/enroll-button"
 
+export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 export default async function PublicPathPage({ params }: { params: Promise<{ id: string }> }) {
