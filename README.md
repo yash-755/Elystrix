@@ -1,6 +1,6 @@
-🌟 Elystrix — Learn Smarter with Freedom
+🌟# Elystrix  
 
-Elystrix is a modern, YouTube-powered EdTech platform that transforms free learning content into structured learning paths, verified certificates, and measurable skill progress.
+AI-powered learning platform that converts YouTube education into structured courses with certifications and an intelligent Ai-powered assistant.
 
 Instead of hosting videos, Elystrix legally embeds high-quality public YouTube content and layers it with progress tracking, quizzes, certifications, and verification — making learning structured, affordable, and scalable.
 
