@@ -1,4 +1,4 @@
-🌟# Elystrix  
+# 🌟Elystrix  
 
 AI-powered learning platform that converts YouTube education into structured courses with certifications and an intelligent Ai-powered assistant.
 
