@@ -111,7 +111,7 @@ Certificates: PDF generation + verification system
 
 Every issued certificate can be verified publicly using its unique ID:
 
-https://elystrix.tech/verify/{certificate-id}
+https://elystrix.tech/verify
 
 
 This ensures authenticity and trust for learners, employers, and institutions.
