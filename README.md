@@ -4,7 +4,7 @@ AI-powered learning platform that converts YouTube education into structured cou
 
 Instead of hosting videos, Elystrix legally embeds high-quality public YouTube content and layers it with progress tracking, quizzes, certifications, and verification — making learning structured, affordable, and scalable.
 
-🚀 Why Elystrix?
+##🚀 Why Elystrix?
 
 Millions of learners use YouTube to learn skills, but face three major problems:
 
@@ -16,8 +16,8 @@ No recognized proof of learning
 
 Elystrix solves this by adding a learning and certification layer on top of YouTube.
 
-✨ Key Features
-🎓 Structured Learning
+#✨ Key Features
+##🎓 Structured Learning
 
 Curated courses built from public YouTube videos
 
@@ -25,7 +25,7 @@ Organized modules and lessons
 
 Learning paths from beginner → advanced
 
-🧠 Progress & Quizzes
+##🧠 Progress & Quizzes
 
 Video-completion based progress tracking
 
@@ -33,7 +33,7 @@ Quiz unlocks only after video completion
 
 Controlled quiz attempts based on user plan
 
-🏆 Certificate System (Fully Implemented)
+##🏆 Certificate System (Fully Implemented)
 
 Multiple certificate levels 
 
@@ -45,7 +45,7 @@ Downloadable certificates
 
 Secure user → course → certificate mapping
 
-🛣 Learning Paths (Roadmaps)
+##🛣 Learning Paths (Roadmaps)
 
 Vertical roadmap-style learning paths
 
@@ -53,7 +53,7 @@ Clear skill progression
 
 Completion tracking across courses
 
-🛡 Admin CMS
+##🛡 Admin CMS
 
 Full admin control over:
 
@@ -73,7 +73,7 @@ Publish / unpublish content
 
 Enhanced "Users" table with rich profile data (Skills, Career Intent)
 
-👤 Rich Student Profile
+##👤 Rich Student Profile
 
 Detailed profile management (Bio, Skills, Education, Socials)
 
@@ -83,7 +83,7 @@ Linked Certificates showcase
 
 Smart data entry (State/City logic, URL normalization)
 
-🔐 Authentication & Roles
+##🔐 Authentication & Roles
 
 Secure authentication
 
@@ -91,7 +91,7 @@ Student and Admin roles
 
 Role-based dashboards and access control
 
-🧰 Tech Stack
+#🧰 Tech Stack
 
 Frontend: Next.js 14 (App Router), TypeScript
 
@@ -107,16 +107,16 @@ Auth: NextAuth
 
 Certificates: PDF generation + verification system
 
-📜 Certificate Verification
+##📜 Certificate Verification
 
 Every issued certificate can be verified publicly using its unique ID:
 
-https://elystrix.tech/verify
+- * https://elystrix.tech/verify *
 
 
 This ensures authenticity and trust for learners, employers, and institutions.
 
-📂 Project Structure (Simplified)
+#📂 Project Structure (Simplified)
 app/            → App router pages
 components/     → UI & domain components
 lib/            → Utilities & helpers
@@ -125,7 +125,7 @@ public/         → Static assets
 styles/         → Global styles
 types/          → Shared TypeScript types
 
-🧹 Code Quality & Cleanup
+#🧹 Code Quality & Cleanup
 
 This project has undergone a full cleanup pass to:
 
@@ -139,7 +139,7 @@ Ensure long-term maintainability
 
 See CLEANUP.md for details.
 
-🎯 Vision
+##🎯 Vision
 
 Short Term
 
@@ -157,7 +157,7 @@ Global EdTech marketplace
 
 Institution and enterprise adoption
 
-🌍 Status
+##🌍 Status
 
 ✅ Core platform implemented
 
@@ -172,7 +172,7 @@ Institution and enterprise adoption
 This project is currently under active development.
 Contribution guidelines will be added in future iterations.
 
-📄 License
+##📄 License
 
 This project is proprietary.
 All rights reserved.
