@@ -3,6 +3,7 @@
 AI-powered learning platform that converts YouTube education into structured courses with certifications and an intelligent Ai-powered assistant.
 
 Instead of hosting videos, Elystrix legally embeds high-quality public YouTube content and layers it with progress tracking, quizzes, certifications, and verification — making learning structured, affordable, and scalable.
+
 ---
 ## 🚀 Why Elystrix?
 
